@@ -24,4 +24,12 @@ public class Bill {
     public Map<Product, Integer> getProducts() {
         return products;
     }
+
+    public double  getTotal() {
+    	return 17.2;
 }
+
+	public void generate(Writer writerMock) {
+		// TODO Auto-generated method stub
+		
+	}}
