@@ -2,15 +2,31 @@ package homeShop0;
 
 public class Main {
 	public static void main(String[] arg) {
-	Product cafe = new Product("senseo", "noire, une ou deux tasse", 45 );
-	Fridge frigo = new Fridge ("curtiss", "blanc, 130L, A+", 299 , 130, true);
+		Product cafe = new Product("Philips HD7866/61", "Philips SENSEO Quadrante, Noir - 1 ou 2 tasses", 79.99);
+	    Product tv = new Television("TV Samsung UE49MU6292", "Smart TV LED incurvée 49\"", 599, 49, "LED");
+	    Fridge fridge = new Fridge("BEKO TSE 1042 F", "Réfrigérateur BEKO 130L - Classe A+ - blanc", 189, 130, false);
+
+	    Customer customer = new Customer("Juste Leblanc", "19 rue Germain Pilon, Paris");
+	    Bill bill = new Bill(customer, new RelayDelivery(27));
 	
-	Customer client = new Customer ("jean jean", "ici ou la bas");
-	
-	Bill bill = new Bill (client, null);
-	
-	bill.addProduct(frigo, 2);
+	bill.addProduct(fridge, 2);
 	bill.addProduct(cafe, 1);
 	
-}
+	 bill.generate(new Writer() {
+         @Override
+         public void start() {
+
+         }
+
+         @Override
+         public void writeLine(String line) {
+             System.out.println(line);
+         }
+
+         @Override
+         public void stop() {
+
+         }
+     });
+ }
 }
